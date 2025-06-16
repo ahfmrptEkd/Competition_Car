@@ -1,4 +1,7 @@
-./data
-./dacon.egg-info
-./models
-./outputs
+data
+dacon.egg-info
+models
+outputs
+__pycache__/
+*.py[cod]
+*$py.class

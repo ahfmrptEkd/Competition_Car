@@ -95,7 +95,7 @@
     * Hugging Face `transformers`와 `openai/clip-vit-base-patch32`, `Qwen/Qwen-VL-Chat` 같은 모델을 사용하여 이미지 특징을 효율적으로 추출하는 스크립트(`quick_vlm_features.py`, `qwen_vlm_features.py`)를 개발했습니다. 특징은 로컬에 저장했습니다.
     * 미리 추출된 특징을 로드하고 PyTorch를 사용하여 간단한 분류 헤드(예: 선형 레이어)를 학습시키는 최적화된 학습 스크립트를 만들었습니다. 이는 종단 간 미세 조정에 비해 학습 시간과 자원 요구 사항을 크게 줄였습니다.
 
-* **사전 학습된 VLM 특징 추출** (`src/scripts/vlm_train_qwen_optimized_v2.py`):
+* **VLM Fine-tuning** (`src/scripts/vlm_train_qwen_optimized_v2.py`):
     * **목표**: 제한된 로컬 GPU 환경에서 7B 이상의 거대 VLM(Qwen2.5-VL)을 직접 파인튜닝하여, 단순 특징 추출 방식보다 더 높은 성능을 달성합니다.
     * **구현**:
         * 4-bit Quantization (양자화): transformers의 BitsAndBytesConfig를 사용해 모델을 4비트로 로드(load_in_4bit=True)하여 VRAM 사용량을 획기적으로 절감했습니다.
